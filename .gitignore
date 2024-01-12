@@ -59,3 +59,5 @@ starDust2/classTest/simulatedChallange/DES_BLIND+HOSTZ
 
 # Mac OSX
 .DS_Store
+._*
+

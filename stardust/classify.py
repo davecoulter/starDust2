@@ -547,6 +547,9 @@ def _parallel(args):
     except:
        print("Some serious problem with %s, skipping..."%modelsource)
        outdict= {'key':modelsource,'sn': None, 'res': None, 'fit': None,'pdf': None, 'priorfn': None}
+
+       raise Exception("Bombing out")
+
     #({'sn': sn, 'res': res, 'fit': fit,'pdf': pdf, 'priorfn': priorfn})
     return outdict
     #return(parallelize.parReturn(outdict))
@@ -688,7 +691,7 @@ def classify(sn, zhost=1.491, zhosterr=0.003, t0_range=None,
            res.append(_parallel([m,verbose,sn,zhost,zhosterr,t0_range,zminmax,npoints,maxiter,nsteps_pdf,excludetemplates]))
             # np.append([m],[verbose,sn,zhost,zhosterr,t0_range,zminmax,npoints,maxiter,nsteps_pdf,excludetemplates])))
 
-       except RuntimeError:
+       except:
            res.append(None)
             
     dt = time.time() - tstart
